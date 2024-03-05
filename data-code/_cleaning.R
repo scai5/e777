@@ -4,13 +4,7 @@
 # ECON 777 Problem Set 1
 # Author:         Shirley Cai 
 # Date created:   02/28/2024 
-# Last edited:    02/29/2024 
-# Last run:       02/29/2024
-
-# Preliminary ------------------------------------------------------------------
-
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(tidyverse)
+# Last edited:    03/04/2024 
 
 # Import raw data --------------------------------------------------------------
 
@@ -48,15 +42,21 @@ market.df <- household.df %>%
     avg_price = mean(price), 
     avg_sub_premium_pp = mean(sub_premium_pp), 
     avg_price_pp = mean(price_pp)
-    # TODO: Add instrument
   ) 
 
 market.df <- market.df %>% 
   group_by(rating_area, year) %>% 
   mutate(
     mkt_share_indv = n_indv / sum(n_indv),
-    mkt_share_household = n_household / sum(n_household)
+    mkt_share_household = n_household / sum(n_household), 
+    n_plans = n()
   )
+
+market.df <- market.df %>%
+  left_join(plan.df, by = c('choice' = 'plan_name')) %>% 
+  rename(insurer = Insurer, metal_level = Metal_Level) %>% 
+  group_by(rating_area, year) %>% 
+  mutate(n_insurers = length(unique(insurer[!is.na(insurer)])))
 
 # Export -----------------------------------------------------------------------
 
