@@ -10,7 +10,7 @@
 # Preliminary ------------------------------------------------------------------
 
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(tidyverse, ivreg, gt, gtsummary)
+pacman::p_load(tidyverse, ivreg, gt, gtsummary, modelsummary)
 
 # Clean data -------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ mkt.df <- read_tsv("data/output/mkt_data.txt")
 
 # Demand estimation ------------------------------------------------------------ 
 
-# source("analysis/2a-berry-inversion.R")
+source("analysis/2a-berry-inversion.R")
 # source("analysis/2b-BLP.R)
 # TODO: Age sensitivity
 

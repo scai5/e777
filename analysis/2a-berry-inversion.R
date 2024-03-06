@@ -4,13 +4,59 @@
 # ECON 777 Problem Set 1
 # Author:         Shirley Cai 
 # Date created:   03/04/2024 
-# Last edited:    03/04/2024 
+# Last edited:    03/06/2024 
 
 # Basic logit ------------------------------------------------------------------
 
+logit.ols <- lm(mean_util_indv ~ as.factor(insurer) + av + hmo + avg_price_pp, 
+                data = mkt.df)
+logit.iv <- ivreg(mean_util_indv ~ as.factor(insurer) + av + hmo | avg_price_pp | hausman_pp,
+                  data = mkt.df)
+
 # Nested logit -----------------------------------------------------------------
+
+# Nests = metal tiers
+
+nested.ols <- lm(mean_util_indv ~ as.factor(insurer) + av + hmo + avg_price_pp + log(nest_share_indv), 
+                data = mkt.df)
+nested.iv <- ivreg(mean_util_indv ~ as.factor(insurer) + av + hmo + log(nest_share_indv) | avg_price_pp | hausman_pp,
+                  data = mkt.df)
+
+# Format results table ---------------------------------------------------------
+
+models <- list("OLS 1 " = logit.ols, "IV 1 " = logit.iv, 
+               "OLS 2" = nested.ols, "IV 2" = nested.iv)
+
+varnames <- c("Blue Shield", "Health Net", "Kaiser", "Small insurer", 
+              "AV", "HMO", "Premium", "1-λ")
+
+gof_map <- tribble(
+  ~raw,      ~clean,          ~fmt,  ~omit,
+  "nobs",      "Observations",     0,  FALSE
+)
+
+tab <- modelsummary(models,
+                    stars = c('*' = .1, '**' = .05, '***' = 0.01),
+                    coef_omit = "(Intercept)",
+                    coef_rename = varnames,
+                    statistic = NULL,
+                    gof_map = gof_map,
+                    output = "gt")
+
+# TODO: Clean up table
+tab <- tab %>% 
+  tab_source_note(
+    source_note = "Market shares are calculated as share of individuals enrolled in a plan in a given market and year. 
+                   Premium is calculated as subsidized premium and is adjusted for the outside option using the penalty. 
+                   Nests are defined as metal levels. The omitted insurer is Anthem."
+  ) %>%
+  tab_spanner(label = "Logit", columns = 2:3) %>% 
+  tab_spanner(label = "Nested logit", columns = 4:5) %>% 
+  opt_horizontal_padding(scale = 3)
 
 # Export results ---------------------------------------------------------------
 
-# TODO: Export table 
-# TODO: Remove lm objects 
+# TODO: Export as latex
+gtsave(tab, "results/berry_inv.html")
+
+rm(list = setdiff(ls(), "mkt.df"))

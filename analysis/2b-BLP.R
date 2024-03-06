@@ -8,15 +8,24 @@
 
 # Parameters  and initial values -----------------------------------------------
 
-ns = 100                # Number of simulated draws 
-tol = 10^(-8)           # Tolerance 
-max_iter = 500          # Maximum number of iterations 
+ns <- 100                # Number of simulated draws 
+tol <- 10^(-8)           # Tolerance 
+max_iter <- 500          # Maximum number of iterations 
 
-delta_init = 0          # Initial delta value
-theta_init = c(0,1)     # Initial theta value = (beta bar, sigma)
-error_init = 1          # Initial error value
+delta_init # TODO: Initial delta value
+theta_init # TODO: Initial theta value 
+error_init <- 1          # Initial error value
 
 # Helper functions -------------------------------------------------------------
+
+# TODO: Put these in a source file 
+
+#' Returns the inverse logit of the input value
+#' 
+#' @param x A numeric
+inv_logit <- function(x){
+  return(exp(x) / (1 + exp(x)))
+}
 
 # TODO: get_delta
 #' Returns the value of delta from the inner loop / contraction mapping
@@ -28,7 +37,7 @@ get_delta <- function(theta){
   delta <- delta_init
   
   while(delta_err > tol){
-    # TODO: Take ns random draws of beta from N(beta, sigma^2)
+    # TODO: Take ns random draws of beta from N(beta bar, sigma^2)
     # TODO: Compute predicted shares 
     # TODO: Compute new delta via contraction mapping 
     # TODO: Calculate new error 
