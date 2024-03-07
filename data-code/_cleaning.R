@@ -4,18 +4,18 @@
 # ECON 777 Problem Set 1
 # Author:         Shirley Cai 
 # Date created:   02/28/2024 
-# Last edited:    03/06/2024 
+# Last edited:    03/07/2024 
 
 # Import raw data --------------------------------------------------------------
 
 household.df <- read_csv("data/input/households777.csv") %>% 
-  select(!`...1`) %>% 
+  dplyr::select(!`...1`) %>% 
   rename_with(tolower)
 household_plan.df <- read_csv("data/input/household_plan_year777.csv") %>% 
-  select(!`...1`) %>% 
+  dplyr::select(!`...1`) %>% 
   rename_with(tolower)
 plan.df <- read_csv("data/input/plans777.csv") %>% 
-  select(!`...1`) %>% 
+  dplyr::select(!`...1`) %>% 
   rename_with(tolower)
 
 # Clean and merge household level data -----------------------------------------
@@ -47,6 +47,8 @@ market.df <- household.df %>%
     avg_price_pp = mean(price_pp)
   ) 
 
+# TODO: Add average market demographics
+
 # Define market shares and merge in plan characteristics
 market.df <- market.df %>% 
   group_by(rating_area, year) %>% 
@@ -70,7 +72,7 @@ market.df <- market.df %>%
     hausman = (n_plan_yr*plan_yr_avg_price - avg_price) / (n_plan_yr - 1), 
     hausman_pp = (n_plan_yr*plan_yr_avg_price_pp - avg_price) / (n_plan_yr - 1)
   ) %>% 
-  select(!c(plan_yr_avg_price, plan_yr_avg_price_pp, n_plan_yr))
+  dplyr::select(!c(plan_yr_avg_price, plan_yr_avg_price_pp, n_plan_yr))
 
 # Construct mean utility a la Berry 
 market.df <- market.df %>% 
@@ -91,8 +93,13 @@ market.df <- market.df %>%
 market.df <- market.df %>% 
   filter(plan != "Uninsured")
 
+# Create a subset of market data for testing
+subset.df <- market.df %>% 
+  filter(rating_area <= 3)
+
 # Export -----------------------------------------------------------------------
 
 write_tsv(household.df, "data/output/indv_data.txt")
 write_tsv(market.df, "data/output/mkt_data.txt")
+write_tsv(subset.df , "data/temp/mkt_subset.txt")
 rm(list = ls())

@@ -4,61 +4,66 @@
 # ECON 777 Problem Set 1
 # Author:         Shirley Cai 
 # Date created:   03/04/2024 
-# Last edited:    03/05/2024 
+# Last edited:    03/07/2024 
 
-# Parameters  and initial values -----------------------------------------------
+# Changing data for TESTING ONLY        # TODO: Remove -------------------------
 
-ns <- 100                # Number of simulated draws 
-tol <- 10^(-8)           # Tolerance 
-max_iter <- 500          # Maximum number of iterations 
+rm(list=ls())
+mkt.df <- read_tsv("data/temp/mkt_subset.txt")
 
-delta_init # TODO: Initial delta value
-theta_init # TODO: Initial theta value 
-error_init <- 1          # Initial error value
+# Format data as matrices ------------------------------------------------------
+
+actual_share <- mkt.df$mkt_share_indv
+plan_char <- as.matrix(mkt.df %>% dplyr::select(avg_price_pp, av, hmo))
+Z <- mkt.df$hausman_pp
+
+# Initial param values = (a, b, ..., sigma_a, sigma_b, ...)
+theta_init <- c(rep(0, dim(plan_char)[2]), rep(1, dim(plan_char)[2]))
 
 # Helper functions -------------------------------------------------------------
 
 # TODO: Put these in a source file 
-
-#' Returns the inverse logit of the input value
-#' 
-#' @param x A numeric
-inv_logit <- function(x){
-  return(exp(x) / (1 + exp(x)))
-}
-
-# TODO: get_delta
-#' Returns the value of delta from the inner loop / contraction mapping
-#' 
-#' @param theta A vector theta = (beta, sigma)
-#' @returns A scalar
-get_delta <- function(theta){
-  delta_err <- error_init
-  delta <- delta_init
-  
-  while(delta_err > tol){
-    # TODO: Take ns random draws of beta from N(beta bar, sigma^2)
-    # TODO: Compute predicted shares 
-    # TODO: Compute new delta via contraction mapping 
-    # TODO: Calculate new error 
-  }
-  
-  return(delta)
-}
+source("analysis/support/gmm_helpers.R")
 
 # TODO: get_GMM_obj 
-#' Returns the value of GMM objective function
+#' Returns the value of GMM objective function for given values of parameters
 #' 
 #' @param theta A vector theta = (beta, sigma)
+#' @param plan_char A n x k matrix of k plan characteristics
 #' @returns A scalar
-get_GMM_obj <- function(theta){
+get_GMM_obj <- function(theta, plan_char, W){
   
-  # TODO: delta <- Call get_delta
+  # Split up theta to be more manageable
+  theta_bar <- theta_init[1:dim(plan_char)[2]]
+  sigma <- theta_init[(dim(plan_char)[2] + 1):length(theta_init)]
   
-  # TODO: Compute xsi hat 
+  xsi <- get_xsi(theta_bar, sigma, plan_char)
+  
   # TODO: Compute and return GMM objective 
+  
 }
+
+# TODO: create GMM wrapper that asks if you want two-stage 
+#' Runs the GMM routine via Nelder-Mead and returns a vector of converged parameters
+#' 
+#' @param theta_init A vector theta = (beta, sigma)
+#' @param efficient A bool = TRUE if the function should run efficient GMM
+#' @returns A vector theta 
+GMM_optimize <- function(theta_init, efficient = TRUE){
+  # TODO: gmm with W=1
+  
+  if(!efficient) return(theta)
+  
+  # TODO: Calculate consistent estimate for W 
+  # TODO: GMM with consistent estimate 
+  
+  return(theta)
+}
+
+# TODO: res <- optim(theta_init, get_GMM_obj, method = "Nelder-Mead")
+# TODO: NEED TO USE SOME GLOBAL ENVIRONMENTS BECAUSE OPTIM ONLY ALLOWS SCALAR OUTPUT
 
 # Run optimization routine -----------------------------------------------------
 
-# TODO: res <- optim(theta_init, get_GMM_obj, method = "Nelder-Mead")
+set.seed(1234)
+

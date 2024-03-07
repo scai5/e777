@@ -5,12 +5,12 @@
 # Author:         Shirley Cai 
 # Date created:   02/29/2024 
 # Last edited:    03/05/2024 
-# Last run:       ---
+# Last run:       03/07/2024
 
 # Preliminary ------------------------------------------------------------------
 
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(tidyverse, ivreg, gt, gtsummary, modelsummary)
+pacman::p_load(tidyverse, ivreg, gt, gtsummary, modelsummary, MASS, boot)
 
 # Clean data -------------------------------------------------------------------
 
