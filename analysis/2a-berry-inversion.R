@@ -4,9 +4,9 @@
 # ECON 777 Problem Set 1
 # Author:         Shirley Cai 
 # Date created:   03/04/2024 
-# Last edited:    03/07/2024
+# Last edited:    03/18/2024
 
-# TODO: Add average market demographics
+# TODO: Add average market demographics, add year FE
 
 # Basic logit ------------------------------------------------------------------
 

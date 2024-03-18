@@ -3,18 +3,18 @@
 # GMM helper functions
 # ECON 777 Problem Set 1
 # Author:         Shirley Cai 
-# Date created:   03/04/2024 
-# Last edited:    03/07/2024 
+# Date created:   03/07/2024 
+# Last edited:    03/18/2024 
 
 # Functions --------------------------------------------------------------------
 
-#' Returns the value of xsi(theta) from the inner loop / contraction mapping
+#' Returns the value of xi(theta) from the inner loop / contraction mapping
 #' 
-#' @param theta_bar A vector of means of the random coefficient distributions
+#' @param beta A vector of means of the random coefficient distributions
 #' @param sigma A vector of std. dev. of the random coefficient distributions
 #' @param plan_char A n x k matrix of k plan characteristics  
-#' @returns A scalar
-get_xsi <- function(theta_bar, sigma, plan_char){
+#' @returns A vector of xi(theta)
+get_xi <- function(beta, sigma, plan_char){
   # Parameters and initial values
   ns <- 100                                     # Number of simulated draws 
   tol <- 10^(-8)                                # Tolerance 
@@ -24,11 +24,15 @@ get_xsi <- function(theta_bar, sigma, plan_char){
   delta <- rep(0, dim(plan_char)[1])            # Initial delta values
   n_iter <- 0                                   # Initial number of iterations
   
+  n_rand <- length(beta)                        # Number of random coefficients
+  
+  # Initialize simulated draws from iid N(0,1)
+  nu <- mvrnorm(ns, rep(0, n_rand), diag(rep(1, n_rand)))
+  nu <- t(nu)
+  
   while(delta_err > tol & n_iter < max_iter){
-    # Take ns random draws a, b, ... from independent N(theta_bar, sigma)
-    rand_draws <- mvrnorm(ns, theta_bar, diag(sigma))
-    rand_draws <- sweep(rand_draws, 2, theta_bar)
-    rand_draws <- t(rand_draws)
+    # Take random draws from independent N(beta, sigma) - delta
+    rand_draws <- nu * sigma
     
     # Compute predicted shares 
     V <- replicate(ns, delta) + plan_char %*% rand_draws
@@ -43,7 +47,26 @@ get_xsi <- function(theta_bar, sigma, plan_char){
     n_iter <- n_iter + 1
   }
   
-  # Calculate xsi based on delta, theta
-  xsi <- delta - plan_char %*% theta_bar 
-  return(xsi)
+  # Calculate xi based on delta, theta
+  xi <- delta - plan_char %*% beta 
+  return(xi)
+}
+
+#' Returns the value of GMM objective function for given values of parameters
+#' 
+#' @param theta A vector theta = (beta, sigma)
+#' @param plan_char A n x k matrix of k plan characteristics
+#' @returns A scalar
+get_GMM_obj <- function(theta, plan_char, W){
+  
+  # Split up theta to be more manageable
+  beta <- theta_init[1:dim(plan_char)[2]]
+  sigma <- theta_init[(dim(plan_char)[2] + 1):length(theta_init)]
+  
+  xi <- get_xi(beta, sigma, plan_char)
+  
+  # Compute and return GMM objective 
+  Q <- t(xi) %*% Z
+  GMM_obj <- Q %*% W %*% t(Q)
+  return(drop(GMM_obj))
 }

@@ -4,7 +4,7 @@
 # ECON 777 Problem Set 1
 # Author:         Shirley Cai 
 # Date created:   02/28/2024 
-# Last edited:    03/07/2024 
+# Last edited:    03/18/2024 
 
 # Import raw data --------------------------------------------------------------
 
@@ -44,10 +44,12 @@ market.df <- household.df %>%
     avg_sub_premium = mean(sub_premium), 
     avg_price = mean(price), 
     avg_sub_premium_pp = mean(sub_premium_pp), 
-    avg_price_pp = mean(price_pp)
+    avg_price_pp = mean(price_pp), 
+    fpl = mean(fpl), 
+    Denglish = mean(language == "English", na.rm = TRUE)
+    # TODO: Add average market demographics (tidier way to do this??)
+    #   - Weight percent age, etc. by the number of individuals in household 
   ) 
-
-# TODO: Add average market demographics
 
 # Define market shares and merge in plan characteristics
 market.df <- market.df %>% 
@@ -70,7 +72,7 @@ market.df <- market.df %>%
   ungroup() %>% 
   mutate(
     hausman = (n_plan_yr*plan_yr_avg_price - avg_price) / (n_plan_yr - 1), 
-    hausman_pp = (n_plan_yr*plan_yr_avg_price_pp - avg_price) / (n_plan_yr - 1)
+    hausman_pp = (n_plan_yr*plan_yr_avg_price_pp - avg_price_pp) / (n_plan_yr - 1)
   ) %>% 
   dplyr::select(!c(plan_yr_avg_price, plan_yr_avg_price_pp, n_plan_yr))
 
