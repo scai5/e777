@@ -1,0 +1,27 @@
+\setlength{\LTpost}{0mm}
+\begin{longtable}{lcccccc}
+\toprule
+ & \multicolumn{3}{c}{Logit} & \multicolumn{3}{c}{Nested logit} \\ 
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+  & OLS & IV & IV & OLS & IV & IV \\ 
+\midrule\addlinespace[2.5pt]
+Premium & -0.001*** & -0.001*** & -0.001*** & -0.001*** & -0.001*** & -0.001*** \\ 
+ & (0.000) & (0.000) & (0.000) & (0.000) & (0.000) & (0.000) \\ 
+1-λ &  &  &  & 0.363*** & 0.347*** & 0.295*** \\ 
+ &  &  &  & (0.041) & (0.043) & (0.039) \\ 
+Price elasticity & 0.94 & 1.211 & 1.347 & 1.217 & 1.67 & 1.755 \\ 
+Cross-price elasticity & 0.047 & 0.06 & 0.067 &  &  &  \\ 
+Cross-price within nest &  &  &  & 0.167 & 0.222 & 0.211 \\ 
+Cross-price outside nest &  &  &  & 0.043 & 0.059 & 0.066 \\ 
+Observations & 1083 & 1083 & 1083 & 1083 & 1083 & 1083 \\ 
+R2 & 0.446 & 0.430 & 0.482 & 0.535 & 0.507 & 0.531 \\ 
+\bottomrule
+\end{longtable}
+\begin{minipage}{\linewidth}
+* p < 0.1, ** p < 0.05, *** p < 0.01\\
+SEs are clustered at the market level. All models include plan characteristics (AV, HMO) and year and market fixed effects. 
+                   Market shares are calculated as share of individuals enrolled in a plan in a given market and year. 
+                   Premium is calculated as subsidized premium and is adjusted for the outside option using the penalty. 
+                   Nests are defined as metal levels. The omitted insurer is Anthem.\\
+\end{minipage}
+

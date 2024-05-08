@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<style>body{background-color:white;}</style>
+
+
+</head>
+<body>
+<div id="mwornyvhrr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+  <style>#mwornyvhrr table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#mwornyvhrr thead, #mwornyvhrr tbody, #mwornyvhrr tfoot, #mwornyvhrr tr, #mwornyvhrr td, #mwornyvhrr th {
+  border-style: none;
+}
+
+#mwornyvhrr p {
+  margin: 0;
+  padding: 0;
+}
+
+#mwornyvhrr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#mwornyvhrr .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mwornyvhrr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mwornyvhrr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mwornyvhrr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mwornyvhrr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mwornyvhrr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mwornyvhrr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 15px;
+  padding-right: 15px;
+  overflow-x: hidden;
+}
+
+#mwornyvhrr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mwornyvhrr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mwornyvhrr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mwornyvhrr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mwornyvhrr .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mwornyvhrr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#mwornyvhrr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mwornyvhrr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mwornyvhrr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mwornyvhrr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mwornyvhrr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#mwornyvhrr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 15px;
+  padding-right: 15px;
+  vertical-align: top;
+}
+
+#mwornyvhrr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mwornyvhrr .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mwornyvhrr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#mwornyvhrr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#mwornyvhrr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mwornyvhrr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mwornyvhrr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#mwornyvhrr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mwornyvhrr .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mwornyvhrr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mwornyvhrr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mwornyvhrr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mwornyvhrr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#mwornyvhrr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mwornyvhrr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#mwornyvhrr .gt_left {
+  text-align: left;
+}
+
+#mwornyvhrr .gt_center {
+  text-align: center;
+}
+
+#mwornyvhrr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mwornyvhrr .gt_font_normal {
+  font-weight: normal;
+}
+
+#mwornyvhrr .gt_font_bold {
+  font-weight: bold;
+}
+
+#mwornyvhrr .gt_font_italic {
+  font-style: italic;
+}
+
+#mwornyvhrr .gt_super {
+  font-size: 65%;
+}
+
+#mwornyvhrr .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#mwornyvhrr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mwornyvhrr .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#mwornyvhrr .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#mwornyvhrr .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mwornyvhrr .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mwornyvhrr .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+  <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings gt_spanner_row">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col" id=" "> </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="Logit">
+        <span class="gt_column_spanner">Logit</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="Nested logit">
+        <span class="gt_column_spanner">Nested logit</span>
+      </th>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="OLS">OLS</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="IV">IV</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="IV">IV</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="OLS">OLS</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="IV">IV</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="IV">IV</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers=" " class="gt_row gt_left">Premium</td>
+<td headers="OLS_1" class="gt_row gt_center">-0.001***</td>
+<td headers="IV_1" class="gt_row gt_center">-0.001***</td>
+<td headers="IV_1_brand" class="gt_row gt_center">-0.001***</td>
+<td headers="OLS_2" class="gt_row gt_center">-0.001***</td>
+<td headers="IV_2" class="gt_row gt_center">-0.001***</td>
+<td headers="IV_2_brand" class="gt_row gt_center">-0.001***</td></tr>
+    <tr><td headers=" " class="gt_row gt_left"></td>
+<td headers="OLS_1" class="gt_row gt_center">(0.000)</td>
+<td headers="IV_1" class="gt_row gt_center">(0.000)</td>
+<td headers="IV_1_brand" class="gt_row gt_center">(0.000)</td>
+<td headers="OLS_2" class="gt_row gt_center">(0.000)</td>
+<td headers="IV_2" class="gt_row gt_center">(0.000)</td>
+<td headers="IV_2_brand" class="gt_row gt_center">(0.000)</td></tr>
+    <tr><td headers=" " class="gt_row gt_left">AV</td>
+<td headers="OLS_1" class="gt_row gt_center">2.065***</td>
+<td headers="IV_1" class="gt_row gt_center">3.812***</td>
+<td headers="IV_1_brand" class="gt_row gt_center">4.308***</td>
+<td headers="OLS_2" class="gt_row gt_center">1.502**</td>
+<td headers="IV_2" class="gt_row gt_center">3.803***</td>
+<td headers="IV_2_brand" class="gt_row gt_center">4.346***</td></tr>
+    <tr><td headers=" " class="gt_row gt_left"></td>
+<td headers="OLS_1" class="gt_row gt_center">(0.490)</td>
+<td headers="IV_1" class="gt_row gt_center">(0.654)</td>
+<td headers="IV_1_brand" class="gt_row gt_center">(0.701)</td>
+<td headers="OLS_2" class="gt_row gt_center">(0.590)</td>
+<td headers="IV_2" class="gt_row gt_center">(0.766)</td>
+<td headers="IV_2_brand" class="gt_row gt_center">(0.774)</td></tr>
+    <tr><td headers=" " class="gt_row gt_left">HMO</td>
+<td headers="OLS_1" class="gt_row gt_center">-0.271**</td>
+<td headers="IV_1" class="gt_row gt_center">-0.431***</td>
+<td headers="IV_1_brand" class="gt_row gt_center">-0.563***</td>
+<td headers="OLS_2" class="gt_row gt_center">-0.276***</td>
+<td headers="IV_2" class="gt_row gt_center">-0.484***</td>
+<td headers="IV_2_brand" class="gt_row gt_center">-0.460***</td></tr>
+    <tr><td headers=" " class="gt_row gt_left"></td>
+<td headers="OLS_1" class="gt_row gt_center">(0.101)</td>
+<td headers="IV_1" class="gt_row gt_center">(0.119)</td>
+<td headers="IV_1_brand" class="gt_row gt_center">(0.179)</td>
+<td headers="OLS_2" class="gt_row gt_center">(0.071)</td>
+<td headers="IV_2" class="gt_row gt_center">(0.099)</td>
+<td headers="IV_2_brand" class="gt_row gt_center">(0.149)</td></tr>
+    <tr><td headers=" " class="gt_row gt_left">Blue Shield</td>
+<td headers="OLS_1" class="gt_row gt_center"></td>
+<td headers="IV_1" class="gt_row gt_center"></td>
+<td headers="IV_1_brand" class="gt_row gt_center">0.151</td>
+<td headers="OLS_2" class="gt_row gt_center"></td>
+<td headers="IV_2" class="gt_row gt_center"></td>
+<td headers="IV_2_brand" class="gt_row gt_center">0.234*</td></tr>
+    <tr><td headers=" " class="gt_row gt_left"></td>
+<td headers="OLS_1" class="gt_row gt_center"></td>
+<td headers="IV_1" class="gt_row gt_center"></td>
+<td headers="IV_1_brand" class="gt_row gt_center">(0.147)</td>
+<td headers="OLS_2" class="gt_row gt_center"></td>
+<td headers="IV_2" class="gt_row gt_center"></td>
+<td headers="IV_2_brand" class="gt_row gt_center">(0.128)</td></tr>
+    <tr><td headers=" " class="gt_row gt_left">Health Net</td>
+<td headers="OLS_1" class="gt_row gt_center"></td>
+<td headers="IV_1" class="gt_row gt_center"></td>
+<td headers="IV_1_brand" class="gt_row gt_center">-0.305</td>
+<td headers="OLS_2" class="gt_row gt_center"></td>
+<td headers="IV_2" class="gt_row gt_center"></td>
+<td headers="IV_2_brand" class="gt_row gt_center">-0.261*</td></tr>
+    <tr><td headers=" " class="gt_row gt_left"></td>
+<td headers="OLS_1" class="gt_row gt_center"></td>
+<td headers="IV_1" class="gt_row gt_center"></td>
+<td headers="IV_1_brand" class="gt_row gt_center">(0.233)</td>
+<td headers="OLS_2" class="gt_row gt_center"></td>
+<td headers="IV_2" class="gt_row gt_center"></td>
+<td headers="IV_2_brand" class="gt_row gt_center">(0.147)</td></tr>
+    <tr><td headers=" " class="gt_row gt_left">Kaiser</td>
+<td headers="OLS_1" class="gt_row gt_center"></td>
+<td headers="IV_1" class="gt_row gt_center"></td>
+<td headers="IV_1_brand" class="gt_row gt_center">0.430**</td>
+<td headers="OLS_2" class="gt_row gt_center"></td>
+<td headers="IV_2" class="gt_row gt_center"></td>
+<td headers="IV_2_brand" class="gt_row gt_center">0.260</td></tr>
+    <tr><td headers=" " class="gt_row gt_left"></td>
+<td headers="OLS_1" class="gt_row gt_center"></td>
+<td headers="IV_1" class="gt_row gt_center"></td>
+<td headers="IV_1_brand" class="gt_row gt_center">(0.203)</td>
+<td headers="OLS_2" class="gt_row gt_center"></td>
+<td headers="IV_2" class="gt_row gt_center"></td>
+<td headers="IV_2_brand" class="gt_row gt_center">(0.152)</td></tr>
+    <tr><td headers=" " class="gt_row gt_left">Small insurer</td>
+<td headers="OLS_1" class="gt_row gt_center"></td>
+<td headers="IV_1" class="gt_row gt_center"></td>
+<td headers="IV_1_brand" class="gt_row gt_center">-0.446**</td>
+<td headers="OLS_2" class="gt_row gt_center"></td>
+<td headers="IV_2" class="gt_row gt_center"></td>
+<td headers="IV_2_brand" class="gt_row gt_center">-0.450***</td></tr>
+    <tr><td headers=" " class="gt_row gt_left"></td>
+<td headers="OLS_1" class="gt_row gt_center"></td>
+<td headers="IV_1" class="gt_row gt_center"></td>
+<td headers="IV_1_brand" class="gt_row gt_center">(0.183)</td>
+<td headers="OLS_2" class="gt_row gt_center"></td>
+<td headers="IV_2" class="gt_row gt_center"></td>
+<td headers="IV_2_brand" class="gt_row gt_center">(0.122)</td></tr>
+    <tr><td headers=" " class="gt_row gt_left">1-λ</td>
+<td headers="OLS_1" class="gt_row gt_center"></td>
+<td headers="IV_1" class="gt_row gt_center"></td>
+<td headers="IV_1_brand" class="gt_row gt_center"></td>
+<td headers="OLS_2" class="gt_row gt_center">0.363***</td>
+<td headers="IV_2" class="gt_row gt_center">0.347***</td>
+<td headers="IV_2_brand" class="gt_row gt_center">0.295***</td></tr>
+    <tr><td headers=" " class="gt_row gt_left" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;"></td>
+<td headers="OLS_1" class="gt_row gt_center" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;"></td>
+<td headers="IV_1" class="gt_row gt_center" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;"></td>
+<td headers="IV_1_brand" class="gt_row gt_center" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;"></td>
+<td headers="OLS_2" class="gt_row gt_center" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;">(0.041)</td>
+<td headers="IV_2" class="gt_row gt_center" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;">(0.043)</td>
+<td headers="IV_2_brand" class="gt_row gt_center" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;">(0.039)</td></tr>
+    <tr><td headers=" " class="gt_row gt_left">Price elasticity</td>
+<td headers="OLS_1" class="gt_row gt_center">0.940</td>
+<td headers="IV_1" class="gt_row gt_center">1.211</td>
+<td headers="IV_1_brand" class="gt_row gt_center">1.347</td>
+<td headers="OLS_2" class="gt_row gt_center">1.217</td>
+<td headers="IV_2" class="gt_row gt_center">1.670</td>
+<td headers="IV_2_brand" class="gt_row gt_center">1.755</td></tr>
+    <tr><td headers=" " class="gt_row gt_left">Cross-price elasticity</td>
+<td headers="OLS_1" class="gt_row gt_center">0.047</td>
+<td headers="IV_1" class="gt_row gt_center">0.060</td>
+<td headers="IV_1_brand" class="gt_row gt_center">0.067</td>
+<td headers="OLS_2" class="gt_row gt_center"></td>
+<td headers="IV_2" class="gt_row gt_center"></td>
+<td headers="IV_2_brand" class="gt_row gt_center"></td></tr>
+    <tr><td headers=" " class="gt_row gt_left">Cross-price within nest</td>
+<td headers="OLS_1" class="gt_row gt_center"></td>
+<td headers="IV_1" class="gt_row gt_center"></td>
+<td headers="IV_1_brand" class="gt_row gt_center"></td>
+<td headers="OLS_2" class="gt_row gt_center">0.167</td>
+<td headers="IV_2" class="gt_row gt_center">0.222</td>
+<td headers="IV_2_brand" class="gt_row gt_center">0.211</td></tr>
+    <tr><td headers=" " class="gt_row gt_left">Cross-price outside nest</td>
+<td headers="OLS_1" class="gt_row gt_center"></td>
+<td headers="IV_1" class="gt_row gt_center"></td>
+<td headers="IV_1_brand" class="gt_row gt_center"></td>
+<td headers="OLS_2" class="gt_row gt_center">0.043</td>
+<td headers="IV_2" class="gt_row gt_center">0.059</td>
+<td headers="IV_2_brand" class="gt_row gt_center">0.066</td></tr>
+    <tr><td headers=" " class="gt_row gt_left">Observations</td>
+<td headers="OLS_1" class="gt_row gt_center">1083</td>
+<td headers="IV_1" class="gt_row gt_center">1083</td>
+<td headers="IV_1_brand" class="gt_row gt_center">1083</td>
+<td headers="OLS_2" class="gt_row gt_center">1083</td>
+<td headers="IV_2" class="gt_row gt_center">1083</td>
+<td headers="IV_2_brand" class="gt_row gt_center">1083</td></tr>
+    <tr><td headers=" " class="gt_row gt_left">R2</td>
+<td headers="OLS_1" class="gt_row gt_center">0.446</td>
+<td headers="IV_1" class="gt_row gt_center">0.430</td>
+<td headers="IV_1_brand" class="gt_row gt_center">0.482</td>
+<td headers="OLS_2" class="gt_row gt_center">0.535</td>
+<td headers="IV_2" class="gt_row gt_center">0.507</td>
+<td headers="IV_2_brand" class="gt_row gt_center">0.531</td></tr>
+  </tbody>
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="7">* p &lt; 0.1, ** p &lt; 0.05, *** p &lt; 0.01</td>
+    </tr>
+    <tr>
+      <td class="gt_sourcenote" colspan="7">SEs are clustered at the market level. All models include year and market fixed effects. 
+                   Market shares are calculated as share of individuals enrolled in a plan in a given market and year. 
+                   Premium is calculated as subsidized premium and is adjusted for the outside option using the penalty. 
+                   Nests are defined as metal levels. The omitted insurer is Anthem.</td>
+    </tr>
+  </tfoot>
+  
+</table>
+</div>
+</body>
+</html>

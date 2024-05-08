@@ -1,29 +1,29 @@
 # About ------------------------------------------------------------------------
 
 # Master script
-# ECON 777 Problem Set 1
+# ECON 777 Problem Sets
 # Author:         Shirley Cai 
 # Date created:   02/29/2024 
-# Last edited:    03/18/2024 
-# Last run:       03/07/2024
+# Last edited:    05/08/2024 
+# Last run:       05/07/2024
 
 # Preliminary ------------------------------------------------------------------
 
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(tidyverse, ivreg, gt, gtsummary, modelsummary, MASS, boot)
+pacman::p_load(tidyverse, gt, gtsummary, modelsummary, MASS, boot, fixest, rootSolve)
 
 # Clean data -------------------------------------------------------------------
 
 source("data-code/_cleaning.R")
 mkt.df <- read_tsv("data/output/mkt_data.txt")
 
-# Demand estimation ------------------------------------------------------------ 
+# Problem set 1 ----------------------------------------------------------------
 
-source("analysis/2a-berry-inversion.R")
-# source("analysis/2b-BLP.R)
-# TODO: Age sensitivity
+source("analysis/PS1/1-logit.R")
+# source("analysis/PS1/2-BLP.R")
+source("analysis/PS1/3-age.R")
 
-# Results and counterfactuals --------------------------------------------------
+# Problem set 2 ----------------------------------------------------------------
 
-# TODO: Calculate elasticities 
-# TODO: Enrollment descriptives
+source("analysis/PS2/1-mandate.R")
+source("analysis/PS2/2-merger.R")
