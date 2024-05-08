@@ -7,11 +7,6 @@
 # Date created:   03/04/2024 
 # Last edited:    05/08/2024 
 
-# Changing data for TESTING ONLY        # TODO: Remove -------------------------
-
-rm(list=ls())
-mkt.df <- read_tsv("data/temp/mkt_subset.txt")
-
 # Import helpers ---------------------------------------------------------------
 
 source("analysis/support/elas_helpers.R")
@@ -72,11 +67,26 @@ sigma <- out$sigma
 
 # Format results ---------------------------------------------------------------
 
-# TODO
+blp_res <- as_tibble(beta) %>% 
+  add_column(sigma = c(sigma, NA)) %>% 
+  add_column(temp = c("Intercept", "AV", "HMO", "Premium"), .before = 1)
+
+tab_blp <- gt(blp_res) %>%
+  cols_label(
+    temp = " ", 
+    V1 = "Mean", 
+    sigma = "SD"
+  ) %>%
+  text_case_match(
+    "NA" ~ " "
+  ) %>% 
+  fmt_number(decimals = 3) %>% 
+  opt_horizontal_padding(scale = 3)
 
 # Export results ---------------------------------------------------------------
 
-# TODO
+gtsave(tab_blp, "results/blp.html")
+gtsave(tab_blp, "results/blp.tex")
 
 rm(list = setdiff(ls(), "mkt.df"))
 
