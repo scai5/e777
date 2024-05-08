@@ -108,7 +108,7 @@ tab <- tab %>%
 rows_short <- rows %>% 
   mutate(across(OLS_1:IV_2_brand, function(x) as.character(round(x,3))))
 
-row_short <- rows_short %>% 
+rows_short <- rows_short %>% 
   add_row(term = "Insurer dummies?", OLS_1 = "No", IV_1 = "No", IV_1_brand = "Yes", 
           OLS_2 = "No", IV_2 = "No", IV_2_brand = "Yes")
 
